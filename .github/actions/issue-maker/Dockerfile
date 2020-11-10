@@ -2,9 +2,8 @@ FROM node:slim
 
 COPY package*.json ./
 
-RUN npm cache clean --force && \
-    npm install -g -s --no-progress yarn && \
-    yarn install
+RUN npm install npm@latest -g && \
+    npm install
 
 COPY . .
 
