@@ -1,8 +1,10 @@
-FROM node:15.0.0-slim
+FROM node:slim
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm cache clean --force && \
+    npm install -g -s --no-progress yarn && \
+    yarn install
 
 COPY . .
 
